@@ -1,0 +1,46 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - SA_PASSWORD=${SA_PASSWORD}
+      - ACCEPT_EULA="Y"
+    ports:
+      - 1450:1433
+
+  assets.api:
+    image: ${DOCKER_REGISTRY-}assetsapi
+    environment:
+      - SA_PASSWORD=${SA_PASSWORD}
+    ports:
+      - 5000:5000
+    depends_on:
+      - sqlserver
+    build:
+      context: .
+      dockerfile: Assets.API/Dockerfile
+
+  users.api:
+    image: ${DOCKER_REGISTRY-}usersapi
+    environment:
+      - SA_PASSWORD=${SA_PASSWORD}
+    ports:
+      - 6000:6000
+    depends_on:
+      - sqlserver
+    build:
+      context: .
+      dockerfile: Users.API/Dockerfile
+
+  transactions.api:
+    image: ${DOCKER_REGISTRY-}transactionsapi
+    environment:
+      - SA_PASSWORD=${SA_PASSWORD}
+    ports:
+      - 7000:7000
+    depends_on:
+      - sqlserver
+    build:
+      context: .
+      dockerfile: Transactions.API/Dockerfile
