@@ -12,9 +12,10 @@ services:
   assets.api:
     image: ${DOCKER_REGISTRY-}assetsapi
     environment:
+      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
       - SA_PASSWORD=${SA_PASSWORD}
     ports:
-      - 5000:5000
+      - 50000:80
     depends_on:
       - sqlserver
     build:
@@ -24,9 +25,10 @@ services:
   users.api:
     image: ${DOCKER_REGISTRY-}usersapi
     environment:
+      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
       - SA_PASSWORD=${SA_PASSWORD}
     ports:
-      - 6000:6000
+      - 50001:80
     depends_on:
       - sqlserver
     build:
@@ -36,9 +38,10 @@ services:
   transactions.api:
     image: ${DOCKER_REGISTRY-}transactionsapi
     environment:
+      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
       - SA_PASSWORD=${SA_PASSWORD}
     ports:
-      - 7000:7000
+      - 50002:80
     depends_on:
       - sqlserver
     build:
