@@ -12,6 +12,7 @@ services:
   assets.api:
     image: ${DOCKER_REGISTRY-}assetsapi
     environment:
+      - ADMIN_GUID_PASSWORD=${ADMIN_GUID_PASSWORD}
       - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
       - SA_PASSWORD=${SA_PASSWORD}
     ports:
@@ -25,6 +26,7 @@ services:
   users.api:
     image: ${DOCKER_REGISTRY-}usersapi
     environment:
+      - ADMIN_GUID_PASSWORD=${ADMIN_GUID_PASSWORD}
       - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
       - SA_PASSWORD=${SA_PASSWORD}
     ports:
@@ -38,6 +40,7 @@ services:
   transactions.api:
     image: ${DOCKER_REGISTRY-}transactionsapi
     environment:
+      - ADMIN_GUID_PASSWORD=${ADMIN_GUID_PASSWORD}
       - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
       - SA_PASSWORD=${SA_PASSWORD}
     ports:

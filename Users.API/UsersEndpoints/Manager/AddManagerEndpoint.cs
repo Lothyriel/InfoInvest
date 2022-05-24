@@ -1,8 +1,9 @@
 ﻿using Core.API;
 using MediatR;
 using Users.Model;
+using Users.Model.Manager;
 
-namespace Users.API.UsersEndpoints
+namespace Users.API.UsersEndpoints.Manager
 {
     public class AddManagerEndpoint : IEndpointDefinition
     {
@@ -11,7 +12,7 @@ namespace Users.API.UsersEndpoints
             app.MapPost("api/users/addManager", AddManager);
         }
 
-        private async Task<Guid> AddManager(IMediator mediator, AddUserVM user)
+        private async Task<Guid> AddManager(IMediator mediator, UserVM user)
         {
             return await mediator.Send(new AddManagerRequest(user));
         }

@@ -1,4 +1,4 @@
-﻿namespace Users.Model
+﻿namespace Users.Model.Manager
 {
     public class Manager : User
     {

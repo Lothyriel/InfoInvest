@@ -1,7 +1,8 @@
 ﻿using MediatR;
 using Users.Model;
+using Users.Model.Client;
 
-namespace Users.API.UsersEndpoints
+namespace Users.API.UsersEndpoints.Client
 {
     public class AddClientEndpoint
     {
@@ -10,7 +11,7 @@ namespace Users.API.UsersEndpoints
             app.MapPost("api/users/AddClient", AddManager);
         }
 
-        private async Task<Guid> AddManager(IMediator mediator, AddUserVM user)
+        private async Task<Guid> AddManager(IMediator mediator, UserVM user)
         {
             return await mediator.Send(new AddClientRequest(user));
         }

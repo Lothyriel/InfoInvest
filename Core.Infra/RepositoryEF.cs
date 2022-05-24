@@ -1,9 +1,9 @@
 ﻿using Core.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Assets.Infra
+namespace Core.Infra
 {
-    public class RepositoryEF<T> : IRepository<T> where T: Entity
+    public class RepositoryEF<T> : IRepository<T> where T : Entity
     {
         private readonly DbContext _context;
 
