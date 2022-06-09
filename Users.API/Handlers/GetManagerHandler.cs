@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Users.Model;
-using Users.Model.Manager;
+using Users.Model.Managers;
 
 namespace Users.API.Handlers
 {

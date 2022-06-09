@@ -13,13 +13,12 @@ namespace Users.API.Handlers
         }
         public async Task<Guid> Handle(AddClientRequest request, CancellationToken ct)
         {
-            var id = Guid.NewGuid();
             //poderia usar um Fluent Validations para as validacoes
-            var asset = new Client(id, request.User.Name, request.User.BirthDate, new());
+            var client = new Client(request.User.Name, request.User.BirthDate, new());
 
-            await _repository.Add(asset);
+            await _repository.Add(client);
 
-            return id;
+            return client.Id;
         }
     }
 }

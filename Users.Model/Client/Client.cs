@@ -6,7 +6,7 @@ namespace Users.Model.Client
     {
         public List<Investment> Investments { get; }
 
-        public Client(Guid id, string name, DateTime birthDate, List<Investment> investments) : base(id, name, birthDate)
+        public Client(string name, DateTime birthDate, List<Investment> investments) : base(name, birthDate)
         {
             Investments = investments;
         }

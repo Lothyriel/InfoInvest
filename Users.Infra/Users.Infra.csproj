@@ -7,12 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Core.Infra\Core.Infra.csproj" />
-    <ProjectReference Include="..\Users.Model\Users.Model.csproj" />
+    <ProjectReference Include="..\Core.Infra\Core.Infra.MongoDB.csproj" />
   </ItemGroup>
 
 </Project>

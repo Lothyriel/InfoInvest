@@ -1,6 +1,6 @@
 ﻿using Core.API;
 using MediatR;
-using Users.Model.Manager;
+using Users.Model.Managers;
 
 namespace Users.API.UsersEndpoints.Manager
 {

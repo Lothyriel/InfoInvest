@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Assets.Infra\Assets.Infra.csproj" />
     <ProjectReference Include="..\Assets.Model\Assets.Model.csproj" />
     <ProjectReference Include="..\Core.API\Core.API.csproj" />
     <ProjectReference Include="..\Core.Infra\Core.Infra.MongoDB.csproj" />

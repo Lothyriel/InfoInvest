@@ -2,7 +2,7 @@
 {
     public class Admin : User
     {
-        public Admin(Guid id, string name, DateTime birthDate) : base(id, name, birthDate)
+        public Admin(string name, DateTime birthDate) : base(name, birthDate)
         {
         }
     }

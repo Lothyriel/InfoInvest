@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Users.Model.Manager;
+using Users.Model.Managers;
 
 namespace Users.API.Handlers
 {
@@ -13,13 +13,12 @@ namespace Users.API.Handlers
         }
         public async Task<Guid> Handle(AddManagerRequest request, CancellationToken ct)
         {
-            var id = Guid.NewGuid();
             //poderia usar um Fluent Validations para as validacoes
-            var asset = new Manager(id, request.User.Name, request.User.BirthDate);
+            var manager = new Manager(request.User.Name, request.User.BirthDate);
 
-            await _repository.Add(asset);
+            await _repository.Add(manager);
 
-            return id;
+            return manager.Id;
         }
     }
 }

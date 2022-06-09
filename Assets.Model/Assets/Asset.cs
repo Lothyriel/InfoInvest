@@ -4,7 +4,7 @@ namespace Assets.Model
 {
     public class Asset : Entity
     {
-        public Asset(Guid id, string name, Group group) : base(id)
+        public Asset(string name, Group group)
         {
             Name = name;
             Group = group;

@@ -1,8 +1,8 @@
-﻿namespace Users.Model.Manager
+﻿namespace Users.Model.Managers
 {
     public class Manager : User
     {
-        public Manager(Guid id, string name, DateTime birthDate) : base(id, name, birthDate)
+        public Manager(string name, DateTime birthDate) : base(name, birthDate)
         {
         }
     }

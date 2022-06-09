@@ -14,13 +14,12 @@ namespace Assets.API.Handlers
         }
         public async Task<Guid> Handle(AddAssetRequest request, CancellationToken ct)
         {
-            var id = Guid.NewGuid();
             //poderia usar um Fluent Validations para as validacoes
-            var asset = new Asset(id, request.Asset.Name, request.Asset.Group); //poderia usar um Automapper para mapear de VM/entidade
+            var asset = new Asset(request.Asset.Name, request.Asset.Group); //poderia usar um Automapper para mapear de VM/entidade
 
             await _repository.Add(asset);
 
-            return id;
+            return asset.Id;
         }
     }
 }

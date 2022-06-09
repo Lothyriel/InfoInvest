@@ -1,6 +1,6 @@
 ﻿using Core.Model;
 
-namespace Users.Model.Manager
+namespace Users.Model.Managers
 {
     public interface IManagerRepository : IRepository<Manager>
     {
