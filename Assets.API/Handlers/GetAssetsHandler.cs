@@ -15,7 +15,7 @@ namespace Assets.API.Handlers
 
         public async Task<List<Asset>> Handle(GetAssetsRequest request, CancellationToken cancellationToken)
         {
-            return await Task.Run(() => _repository.GetRange(request.Start, request.End));
+            return await _repository.GetRange(request.Start, request.End);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Assets.API.Handlers
             //poderia usar um Fluent Validations para as validacoes
             var asset = new Asset(id, request.Asset.Name, request.Asset.Group); //poderia usar um Automapper para mapear de VM/entidade
 
-            await Task.Run(() => _repository.Add(asset), ct);
+            await _repository.Add(asset);
 
             return id;
         }

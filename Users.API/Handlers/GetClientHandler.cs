@@ -14,7 +14,7 @@ namespace Users.API.Handlers
 
         public async Task<ClientDetailsVM?> Handle(GetClientRequest request, CancellationToken cancellationToken)
         {
-            var client = await Task.Run(() => _repository.GetById(request.Id));
+            var client = await _repository.GetById(request.Id);
             return client is not null ? new ClientDetailsVM(client.Name, client.BirthDate, client.Investments) : null;
         }
     }

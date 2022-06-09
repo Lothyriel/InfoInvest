@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Transactions.Model\Transactions.Model.csproj" />
     <ProjectReference Include="..\Core.Model\Core.Model.csproj" />
+    <ProjectReference Include="..\Transactions.Model\Transactions.Model.csproj" />
   </ItemGroup>
 
 </Project>

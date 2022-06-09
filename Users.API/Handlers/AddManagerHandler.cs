@@ -17,7 +17,7 @@ namespace Users.API.Handlers
             //poderia usar um Fluent Validations para as validacoes
             var asset = new Manager(id, request.User.Name, request.User.BirthDate);
 
-            await Task.Run(() => _repository.Add(asset), ct);
+            await _repository.Add(asset);
 
             return id;
         }

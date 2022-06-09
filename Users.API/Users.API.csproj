@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.API\Core.API.csproj" />
-    <ProjectReference Include="..\Core.Infra\Core.Infra.csproj" />
+    <ProjectReference Include="..\Core.Infra\Core.Infra.MongoDB.csproj" />
     <ProjectReference Include="..\Users.Model\Users.Model.csproj" />
   </ItemGroup>
 

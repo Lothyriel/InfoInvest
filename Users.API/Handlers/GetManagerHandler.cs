@@ -15,7 +15,7 @@ namespace Users.API.Handlers
 
         public async Task<UserVM?> Handle(GetManagerRequest request, CancellationToken cancellationToken)
         {
-            var manager = await Task.Run(() => _repository.GetById(request.Id));
+            var manager = await _repository.GetById(request.Id);
             return manager is not null ? new UserVM(manager.Name, manager.BirthDate) : null;
         }
     }

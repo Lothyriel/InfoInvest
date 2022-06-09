@@ -1,7 +1,5 @@
 using Assets;
 using Core.API;
-using Core.Infra;
-using Core.Infra.RepositoresEF;
 using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +8,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEndPointDefinitions(typeof(Program));
 builder.Services.AddMediatR(typeof(Program));
-builder.Services.AddScoped<IAssetRepository, AssetRepositoryEF>();
-builder.ConfigureSqlServer<InfoInvestDbContext>();
 
 var app = builder.Build();
 
