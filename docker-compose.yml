@@ -1,20 +1,27 @@
 version: '3.4'
 
 services:
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+  mongo:
+    image: mongo
+    restart: always
     environment:
-      - SA_PASSWORD=${SA_PASSWORD}
-      - ACCEPT_EULA="Y"
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+
+  mongo-express:
+    image: mongo-express
+    restart: always
     ports:
-      - 1450:1433
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
 
   assets.api:
     image: ${DOCKER_REGISTRY-}assetsapi
     environment:
-      - ADMIN_GUID_PASSWORD=${ADMIN_GUID_PASSWORD}
-      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
-      - SA_PASSWORD=${SA_PASSWORD}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
     ports:
       - 50000:80
     depends_on:
@@ -26,9 +33,7 @@ services:
   users.api:
     image: ${DOCKER_REGISTRY-}usersapi
     environment:
-      - ADMIN_GUID_PASSWORD=${ADMIN_GUID_PASSWORD}
-      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
-      - SA_PASSWORD=${SA_PASSWORD}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
     ports:
       - 50001:80
     depends_on:
@@ -40,9 +45,7 @@ services:
   transactions.api:
     image: ${DOCKER_REGISTRY-}transactionsapi
     environment:
-      - ADMIN_GUID_PASSWORD=${ADMIN_GUID_PASSWORD}
-      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
-      - SA_PASSWORD=${SA_PASSWORD}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
     ports:
       - 50002:80
     depends_on:
